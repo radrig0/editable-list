@@ -1,0 +1,21 @@
+.listEditable {
+    @apply flex flex-col flex-grow self-stretch;
+}
+
+.controls {
+    @apply flex flex-row justify-between p-5 mb-5;
+}
+
+.button {
+    @apply border border-black p-2 rounded disabled:border-gray-400 disabled:text-gray-400;
+}
+
+.list {
+    @apply flex flex-row;
+    height: calc(100vw / 5);
+}
+
+.item {
+    width: calc(100vw / 5);
+    height: calc(100vw / 5);
+}

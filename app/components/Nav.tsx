@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-import styles from "../styles/layout.module.css";
+import styles from '../styles/layout.module.css';
 
 export const Nav = () => {
   const pathname = usePathname();
@@ -11,14 +11,14 @@ export const Nav = () => {
   return (
     <nav className={styles.nav}>
       <Link
-        className={`${styles.link} ${pathname === "/" ? styles.active : ""}`}
+        className={`${styles.link} ${pathname === '/' ? styles.active : ''}`}
         href="/"
       >
         Home
       </Link>
       <Link
         className={`${styles.link} ${
-          pathname === "/verify" ? styles.active : ""
+          pathname === '/verify' ? styles.active : ''
         }`}
         href="/verify"
       >
@@ -26,11 +26,19 @@ export const Nav = () => {
       </Link>
       <Link
         className={`${styles.link} ${
-          pathname === "/quotes" ? styles.active : ""
+          pathname === '/quotes' ? styles.active : ''
         }`}
         href="/quotes"
       >
         Quotes
+      </Link>
+      <Link
+        className={`${styles.link} ${
+          pathname === '/editable-list' ? styles.active : ''
+        }`}
+        href="/editable-list"
+      >
+        Editable List
       </Link>
     </nav>
   );

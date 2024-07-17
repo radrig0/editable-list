@@ -1,12 +1,12 @@
 import { createAppSlice } from '@/lib/createAppSlice';
-import { getRandomVibrantColor } from '@/app/components/editableList/utils';
+import { PayloadAction } from '@reduxjs/toolkit';
 
-export interface CounterSliceState {
+export interface IEditableListSliceState {
   value: string[];
   status: 'idle' | 'loading' | 'failed';
 }
 
-const initialState: CounterSliceState = {
+const initialState: IEditableListSliceState = {
   value: [],
   status: 'idle',
 };
@@ -18,12 +18,11 @@ export const editableListSlice = createAppSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: (create) => ({
-    add: create.reducer((state) => {
-      const { hue, saturation, lightness } = getRandomVibrantColor();
-      state.value.unshift(`hsl(${hue}, ${saturation}%, ${lightness}%)`);
+    add: create.reducer((state, action: PayloadAction<string>) => {
+      state.value.unshift(action.payload);
     }),
-    remove: create.reducer((state) => {
-      state.value.pop();
+    remove: create.reducer((state, action: PayloadAction<string>) => {
+      state.value = state.value.filter((v) => v !== action.payload);
     }),
   }),
   // You can define your selectors here. These selectors receive the slice

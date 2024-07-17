@@ -14,8 +14,7 @@ export const EditableList: FC = () => {
   const [isAdding, setIsAdding] = useState(false);
 
   const onAdd = () => {
-    const { hue, saturation, lightness } = getRandomVibrantColor();
-    const newItem = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    const newItem = getRandomVibrantColor();
     dispatch(add(newItem));
     setIsAdding(true);
   };
